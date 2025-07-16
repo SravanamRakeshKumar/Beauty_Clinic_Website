@@ -19,7 +19,7 @@ const Toast = ({ message, type, onClose }) => {
   const Icon = icons[type];
 
   useEffect(() => {
-    const timer = setTimeout(onClose, 5000);
+    const timer = setTimeout(onClose, 2000);
     return () => clearTimeout(timer);
   }, [onClose]);
 

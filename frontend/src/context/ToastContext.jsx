@@ -20,7 +20,7 @@ export const ToastProvider = ({ children }) => {
     
     setTimeout(() => {
       setToasts(prev => prev.filter(toast => toast.id !== id));
-    }, 5000);
+    }, 2000);
   };
 
   const removeToast = (id) => {

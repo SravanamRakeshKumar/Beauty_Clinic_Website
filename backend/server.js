@@ -21,6 +21,10 @@ mongoose.connect(`${MONGODB_CLOUD_URL}`, {
   .then(() => console.log("✅ MongoDB Connected to Atlas"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
+  app.get('/', (req, res) => {
+  res.send('✅ Backend server is working!');
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/services', require('./routes/services'));

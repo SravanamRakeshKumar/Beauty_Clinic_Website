@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { Save } from 'lucide-react';
 import axios from 'axios';
 import { useToast } from '../context/ToastContext';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const AdminSlots = () => {
   const [slotData, setSlotData] = useState([]);
@@ -15,7 +16,7 @@ const AdminSlots = () => {
 
   const fetchSlots = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/slots');
+      const res = await axios.get(`${backendUrl}/api/slots`);
       const enriched = res.data.map(slot => {
         const times = Array.isArray(slot.timeSlots) ? slot.timeSlots.flat() : [];
         const start = times[0] || '09:00';
@@ -83,7 +84,7 @@ const AdminSlots = () => {
         timeSlots
       }));
 
-      await axios.put('http://localhost:5000/api/slots', payload);
+      await axios.put(`${backendUrl}/api/slots`, payload);
       addToast('Slot data updated successfully', 'success');
       fetchSlots();
     } catch (err) {

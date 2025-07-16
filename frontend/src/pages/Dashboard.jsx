@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import axios from 'axios';
 import { Calendar, Clock, Edit, Trash2, Filter } from 'lucide-react';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const API_URL = 'https://686fae6b91e85fac42a215f6.mockapi.io/appointments';
 const SERVICE_URL = 'https://686fae6b91e85fac42a215f6.mockapi.io/services';
@@ -72,7 +73,7 @@ const Dashboard = () => {
   const fetchAvailableSlots = async (date) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/appointments/available-slots?date=${date}`
+        `${backendUrl}/api/appointments/available-slots?date=${date}`
       );
       setAvailableSlots(res.data.availableSlots || []);
     } catch (err) {
