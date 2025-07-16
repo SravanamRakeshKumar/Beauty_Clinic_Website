@@ -5,7 +5,7 @@ import { useToast } from '../context/ToastContext';
 import { Calendar, Clock, Phone } from 'lucide-react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const BookAppointment = () => {
   const location = useLocation();

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import { Save } from 'lucide-react';
 import axios from 'axios';
 import { useToast } from '../context/ToastContext';
-const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AdminSlots = () => {
   const [slotData, setSlotData] = useState([]);
